@@ -51,24 +51,35 @@ if (quizForm) {
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+  contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const result = document.getElementById("contactResult");
+    const name = document.getElementById("name").value.trim();
+    const result = document.getElementById("contactResult");
 
-        if (!name) {
-            result.textContent = "Please enter your name.";
-            result.hidden = false;
-            return;
-        }
+    if (!name) {
+      result.textContent = "Please enter your name.";
+      result.hidden = false;
+      return;
+    }
 
-        result.textContent =
-            "Thank you, " + name +
-            "! Your form was validated successfully. " +
-            "This demo has not sent or saved your feedback.";
+    try {
+      const res = await fetch("https://formspree.io/f/xdeagrnn", {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" }
+      });
 
-        result.hidden = false;
+      if (res.ok) {
+        result.textContent = "Thank you, " + name + "! Your feedback was sent.";
         contactForm.reset();
-    });
+      } else {
+        result.textContent = "Sorry, your feedback could not be sent.";
+      }
+    } catch (error) {
+      result.textContent = "Sorry, your feedback could not be sent.";
+    }
+
+    result.hidden = false;
+  });
 }
