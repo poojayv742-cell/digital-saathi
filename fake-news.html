@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Awareness | Digital Sathi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Fake News Awareness</h1>
+    <p>Think before you believe or share</p>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="learn.html">Learn</a>
+        <a href="safety.html">Online Safety</a>
+        <a href="payments.html">Digital Payments</a>
+        <a href="fake-news.html">Fake News</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section class="card">
+        <h2>What Is Fake News?</h2>
+        <p>Fake news refers to false or misleading information presented
+        as if it were true news. It may spread through social media,
+        messaging apps, websites and other online platforms.</p>
+    </section>
+
+    <section class="card" style="margin-top:20px;">
+        <h2>Warning Signs</h2>
+        <ul>
+            <li>A shocking headline that pressures you to react immediately.</li>
+            <li>No trustworthy source or author is identified.</li>
+            <li>Images or videos lack context.</li>
+            <li>The information cannot be confirmed by reliable sources.</li>
+            <li>The message asks you to forward it to everyone.</li>
+        </ul>
+    </section>
+
+    <section class="card" style="margin-top:20px;">
+        <h2>Example: Is This Message Reliable?</h2>
+        <p><strong>Sample message:</strong> "Forward this message to ten
+        people today to receive a free smartphone tomorrow!"</p>
+        <p><strong>What should you do?</strong> Do not forward it
+        automatically. Check the offer on the company's official website
+        and look for reliable evidence.</p>
+
+        <button class="button" onclick="showFactCheck()">
+            Reveal the Lesson
+        </button>
+
+        <p id="factResult" aria-live="polite"></p>
+    </section>
+
+    <section class="notice">
+        <h3>Before Sharing Information</h3>
+        <ol>
+            <li>Read beyond the headline.</li>
+            <li>Check the date and original source.</li>
+            <li>Compare the claim with reliable sources.</li>
+            <li>Check images and context carefully.</li>
+            <li>Do not share claims you cannot verify.</li>
+        </ol>
+    </section>
+</main>
+
+<footer><p>© 2026 Digital Sathi</p></footer>
+
+<script>
+function showFactCheck() {
+    document.getElementById("factResult").textContent =
+        "Lesson: This message makes an unverified promise. Do not forward it without checking the source and evidence.";
+}
+</script>
+</body>
+</html>
